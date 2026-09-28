@@ -1,0 +1,93 @@
+/* Global */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #fff5f5;
+  color: #222;
+  font-family: "Open Sans", sans-serif;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+}
+
+/* Typography */
+
+.font-1 {
+  font:
+    300 clamp(1rem, 4vw, 1.125rem)/1 "Open Sans",
+    sans-serif;
+}
+
+.font-2 {
+  font:
+    700 3.235rem/1 "Hanken Grotesk",
+    sans-serif;
+}
+
+/* Header */
+.header-bg {
+  background: #ffff;
+}
+.header-container {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 30px;
+  align-items: center;
+  padding: 24px 32px;
+}
+
+.header-link ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(22px, 4vw, 65px);
+  justify-content: center;
+}
+
+.header-container img {
+  justify-self: end;
+  max-width: 42px;
+}
+.header-container h1 span {
+  color: #ff751f;
+}
+
+.header-link a:hover {
+  color: #747b9b;
+  transition: 0.2s;
+}
+/* Responsividade */
+@media (max-width: 1000px) {
+  .header-container {
+    grid-template-columns: auto auto;
+    justify-content: center;
+  }
+  .header-container h1 {
+    grid-column: -1 / 1;
+    margin: 0 auto;
+  }
+}
