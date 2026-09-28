@@ -48,7 +48,31 @@ button {
     700 3.235rem/1 "Hanken Grotesk",
     sans-serif;
 }
-
+.font-3 {
+  font:
+    300 clamp(0.875rem, 1.5vw, 1rem)/1 "Open Sans",
+    sans-serif;
+}
+.font-4 {
+  font:
+    300 clamp(4.535rem, 8.5vw, 5.425rem)/1 "Hanken Grotesk",
+    sans-serif;
+}
+.font-5 {
+  font:
+    300 clamp(0.875rem, 1.5vw, 1.125rem)/1 "Open Sans",
+    sans-serif;
+  word-spacing: 1px;
+}
+/* responsive */
+@media (max-width: 503px) {
+  .font-4 {
+    font:
+      300 clamp(3.2rem, 12vw, 4.525rem)/1 "Hanken Grotesk",
+      sans-serif;
+    word-break: break-all;
+  }
+}
 /* Header */
 .header-bg {
   background: #ffff;
@@ -80,7 +104,7 @@ button {
   color: #747b9b;
   transition: 0.2s;
 }
-/* Responsividade */
+/* responsive */
 @media (max-width: 1000px) {
   .header-container {
     grid-template-columns: auto auto;
@@ -89,5 +113,77 @@ button {
   .header-container h1 {
     grid-column: -1 / 1;
     margin: 0 auto;
+  }
+}
+
+/* Hero */
+.main-bg {
+  margin-top: 20px;
+  background: #ffff;
+}
+.hero-container {
+  display: grid;
+  grid-template-columns: 1fr auto;
+
+  padding: 50px clamp(12px, 7vw, 100px);
+  background: linear-gradient(to right, #fff 0%, #fff 55%, #fcecd9 100%);
+  gap: 20px;
+}
+.hero-img {
+  width: 100%;
+  max-width: 450px;
+}
+.subtitle {
+  display: block;
+  margin-bottom: 35px;
+  position: relative;
+  margin-left: 12px;
+}
+.subtitle::after {
+  content: "";
+  position: absolute;
+  width: 3px;
+  height: 20px;
+  background: #ff751f;
+  left: -12px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.hero-content h1 span {
+  color: #ff751f;
+}
+.hero-content h1 {
+  margin-bottom: 15px;
+}
+.hero-content p {
+  max-width: 57ch;
+}
+/* responsive */
+@media (max-width: 827px) {
+  .hero-container {
+    grid-template-columns: auto;
+    justify-content: center;
+  }
+  .hero-img {
+    display: none;
+  }
+  .hero-content {
+    text-align: center;
+  }
+  .subtitle::after {
+    display: none;
+  }
+  .subtitle {
+    margin-left: 0px;
+  }
+  .subtitle::before {
+    content: "";
+    background: #ff751f;
+    width: 99px;
+    height: 2px;
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
   }
 }
