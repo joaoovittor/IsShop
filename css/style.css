@@ -39,40 +39,59 @@ button {
 
 .font-1 {
   font:
-    300 clamp(1rem, 4vw, 1.125rem)/1 "Open Sans",
+    300 1rem/1 "Open Sans",
     sans-serif;
 }
 
 .font-2 {
   font:
-    700 3.235rem/1 "Hanken Grotesk",
+    700 2.275rem/1 "Hanken Grotesk",
     sans-serif;
 }
 .font-3 {
   font:
-    300 clamp(0.875rem, 1.5vw, 1rem)/1 "Open Sans",
+    300 0.675rem/1 "Open Sans",
     sans-serif;
 }
 .font-4 {
   font:
-    300 clamp(4.535rem, 8.5vw, 5.425rem)/1 "Hanken Grotesk",
+    300 clamp(3.535em, 8vw, 4.725rem)/1 "Hanken Grotesk",
     sans-serif;
+  word-break: break-all;
 }
 .font-5 {
   font:
-    300 clamp(0.875rem, 1.5vw, 1.125rem)/1 "Open Sans",
+    300 1.235rem/1 "Open Sans",
     sans-serif;
   word-spacing: 1px;
 }
-/* responsive */
-@media (max-width: 503px) {
+.font-6 {
+  font:
+    300 clamp(2.235em, 8vw, 3rem)/1 "Hanken Grotesk",
+    sans-serif;
+  word-break: break-all;
+}
+.font-7 {
+  font:
+    700 clamp(1rem, 1vw, 1.225rem)/1 "Hanken Grotesk",
+    sans-serif;
+  word-break: break-all;
+}
+.font-8 {
+  font:
+    300 clamp(0.675rem, 2.5vw, 1rem)/1 "Open Sans",
+    sans-serif;
+}
+@media (max-width: 382px) {
   .font-4 {
     font:
-      300 clamp(3.2rem, 12vw, 4.525rem)/1 "Hanken Grotesk",
+      300 clamp(2.5rem, 14vw, 3.535em)/1 "Hanken Grotesk",
       sans-serif;
     word-break: break-all;
   }
 }
+/* responsive */
+
 /* Header */
 .header-bg {
   background: #ffff;
@@ -80,9 +99,11 @@ button {
 .header-container {
   display: grid;
   grid-template-columns: auto 1fr auto;
+
+  margin: 0 auto;
   gap: 30px;
   align-items: center;
-  padding: 24px 32px;
+  padding: 20px 22px;
 }
 
 .header-link ul {
@@ -94,7 +115,7 @@ button {
 
 .header-container img {
   justify-self: end;
-  max-width: 42px;
+  max-width: 30px;
 }
 .header-container h1 span {
   color: #ff751f;
@@ -105,7 +126,7 @@ button {
   transition: 0.2s;
 }
 /* responsive */
-@media (max-width: 1000px) {
+@media (max-width: 800px) {
   .header-container {
     grid-template-columns: auto auto;
     justify-content: center;
@@ -121,21 +142,26 @@ button {
   margin-top: 20px;
   background: #ffff;
 }
+.hero-bg {
+  background: linear-gradient(to right, #fff 0%, #fff 55%, #fcecd9 100%);
+}
 .hero-container {
   display: grid;
   grid-template-columns: 1fr auto;
-
-  padding: 50px clamp(12px, 7vw, 100px);
-  background: linear-gradient(to right, #fff 0%, #fff 55%, #fcecd9 100%);
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 50px 22px;
   gap: 20px;
 }
 .hero-img {
   width: 100%;
-  max-width: 450px;
+  max-width: 350px;
+}
+.hero-content span {
+  margin-bottom: 35px;
 }
 .subtitle {
   display: block;
-  margin-bottom: 35px;
   position: relative;
   margin-left: 12px;
 }
@@ -185,5 +211,69 @@ button {
     top: 20px;
     left: 50%;
     transform: translateX(-50%);
+  }
+}
+
+/* Category */
+.category {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 50px 22px;
+  gap: 20px;
+}
+.category-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: clamp(30px, 1vw, 35px);
+  justify-content: space-between;
+}
+.category-container li {
+  border-radius: 10px;
+  background: #f7f7f7;
+  padding: clamp(10px, 3vw, 30px);
+
+  transition: 0.2s ease;
+}
+.category-container li:hover {
+  background: #eaeaea;
+  border-radius: 20px;
+}
+.category-container li a {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.category-container li img {
+  width: min(200px, 100%);
+  aspect-ratio: 1;
+  object-fit: contain;
+  margin-bottom: 25px;
+}
+.category-container li h3 {
+  margin-top: auto;
+  margin-bottom: 15px;
+}
+.category-container li span {
+  color: #a6a6a6;
+}
+.category-intro span,
+.category-intro h2 {
+  margin-bottom: 15px;
+}
+
+/* responsive */
+@media (max-width: 925px) {
+  .category-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .category-container li:last-child {
+    grid-column: 1 / -1;
+  }
+}
+@media (max-width: 827px) {
+  .category-intro {
+    text-align: center;
   }
 }
