@@ -112,7 +112,17 @@ button {
 }
 .font-15 {
   font:
-    700 clamp(0.875rem, 1.7vw, 1em)/1 "Hanken Grotesk",
+    700 clamp(0.875rem, 1.7vw, 1rem)/1 "Hanken Grotesk",
+    sans-serif;
+}
+.font-16 {
+  font:
+    500 clamp(1.575rem, 1.7vw, 1.725rem)/1 "Hanken Grotesk",
+    sans-serif;
+}
+.font-17 {
+  font:
+    300 clamp(0.975rem, 1.7vw, 1.124rem)/1.35 "Open Sans",
     sans-serif;
 }
 @media (max-width: 401px) {
@@ -452,7 +462,7 @@ button {
   }
 }
 
-@media (max-width: 548px) {
+@media (max-width: 549px) {
   .reviews-items:nth-child(1) .reviews-item-intro,
   .reviews-items:nth-child(2) .reviews-item-intro {
     justify-content: center;
@@ -485,5 +495,39 @@ button {
   .reviews-items:nth-child(1) .reviews-star,
   .reviews-items:nth-child(2) .reviews-star {
     margin: 0;
+  }
+}
+
+/* Location */
+.location {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 50px 22px;
+  gap: 20px;
+}
+.location h2 {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.location-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: clamp(20px, 7vw, 100px);
+}
+.location-container img {
+  margin-bottom: 15px;
+}
+.location-container h3 {
+  margin-bottom: 15px;
+}
+.location-container p {
+  border-top: 2px solid #d9d9d9;
+  padding-top: 15px;
+}
+/*responsive*/
+@media (max-width: 551px) {
+  .location-container {
+    grid-template-columns: 1fr;
   }
 }
