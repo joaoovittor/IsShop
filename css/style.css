@@ -125,6 +125,28 @@ button {
     300 clamp(0.975rem, 1.7vw, 1.124rem)/1.35 "Open Sans",
     sans-serif;
 }
+.font-18 {
+  font:
+    300 1rem/1 "Open Sans",
+    sans-serif;
+}
+.font-19 {
+  font:
+    300 1rem/1 "Open Sans",
+    sans-serif;
+  letter-spacing: 1px;
+}
+.font-20 {
+  font:
+    100 clamp(0.975rem, 1.7vw, 1.225rem)/1 "Hanken Grotesk",
+    sans-serif;
+}
+
+.font-21 {
+  font:
+    700 1rem/1 "Open Sans",
+    sans-serif;
+}
 @media (max-width: 401px) {
   .font-7 {
     font:
@@ -529,5 +551,89 @@ button {
 @media (max-width: 551px) {
   .location-container {
     grid-template-columns: 1fr;
+  }
+}
+
+/* Contact */
+.contact-container {
+  display: grid;
+  grid-template-columns: 2fr repeat(3, auto);
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 100px 22px;
+}
+.contact-content {
+  display: flex;
+  gap: 10px;
+  padding-left: clamp(20px, 8vw, 100px);
+}
+.contact-content img {
+  width: clamp(20px, 5vw, 32px);
+  height: auto;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+.contact-intro span {
+  margin-bottom: 10px;
+}
+.contact-intro h3 {
+  margin-bottom: 20px;
+}
+.contact-intro p {
+  margin-bottom: 30px;
+  max-width: 50ch;
+}
+.contact-intro a {
+  padding: 10px 30px;
+  border-radius: 10px;
+  border: 1px solid #000;
+  transition: 0.2s ease-in-out;
+}
+.contact-intro a:hover {
+  padding: 15px 30px;
+}
+.contact-content h4 {
+  margin-bottom: 7px;
+}
+@media (max-width: 1186px) {
+  .contact-container {
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
+    text-align: center;
+  }
+  .contact-intro {
+    grid-column: 1 / -1;
+    justify-self: center;
+    text-align: center;
+  }
+  .contact-intro a {
+    display: inline-block;
+    margin-bottom: 30px;
+  }
+  .contact-content {
+    gap: 10px;
+    padding-left: 0;
+    justify-self: center;
+  }
+}
+@media (max-width: 813px) {
+  .contact-content {
+    flex-direction: column;
+  }
+  .contact-content img {
+    align-self: center;
+  }
+}
+@media (max-width: 551px) {
+  .contact-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .contact-content:last-of-type {
+    margin-top: 20px;
+    justify-self: center;
+    grid-column: 1 / -1;
   }
 }
