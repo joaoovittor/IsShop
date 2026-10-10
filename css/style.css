@@ -9,6 +9,9 @@ body {
   background: #fff5f5;
   color: #222;
   font-family: "Open Sans", sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 ul {
@@ -206,6 +209,13 @@ button {
 .header-link a:hover {
   color: #747b9b;
   transition: 0.2s;
+}
+.header-container-card img {
+  display: block;
+  transition: 0.3s ease-in-out;
+}
+.header-container-card img:hover {
+  transform: scale(1.05);
 }
 /* responsive */
 @media (max-width: 800px) {
@@ -650,6 +660,7 @@ button {
 /* Footer */
 .footer-bg {
   background: #ffff;
+  margin-top: auto;
 }
 .footer-container {
   display: grid;
