@@ -130,7 +130,8 @@ button {
     300 1rem/1 "Open Sans",
     sans-serif;
 }
-.font-19 {
+.font-19,
+.font-23 {
   font:
     300 1rem/1 "Open Sans",
     sans-serif;
@@ -146,6 +147,14 @@ button {
   font:
     700 1rem/1 "Open Sans",
     sans-serif;
+}
+.font-22 {
+  font:
+    600 clamp(2.135em, 8vw, 3rem)/1 "Hanken Grotesk",
+    sans-serif;
+}
+.font-23 {
+  word-spacing: 5px;
 }
 @media (max-width: 401px) {
   .font-7 {
@@ -597,6 +606,7 @@ button {
 .contact-content h4 {
   margin-bottom: 7px;
 }
+/*Responsive*/
 @media (max-width: 1186px) {
   .contact-container {
     grid-template-columns: repeat(3, 1fr);
@@ -635,5 +645,89 @@ button {
     margin-top: 20px;
     justify-self: center;
     grid-column: 1 / -1;
+  }
+}
+/* Footer */
+.footer-bg {
+  background: #ffff;
+}
+.footer-container {
+  display: grid;
+  grid-template-columns: 2fr repeat(3, 1fr);
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 100px 22px;
+}
+.footer-intro h3 span {
+  color: #ff751f;
+}
+.footer-intro h3 {
+  margin-bottom: 25px;
+}
+.footer-intro p {
+  max-width: 50ch;
+  margin-bottom: 15px;
+}
+.footer-intro-links {
+  display: flex;
+}
+.footer-intro-links img {
+  max-width: 50px;
+  transition: 0.2s ease-in-out;
+}
+.footer-intro-links img:hover {
+  transform: scale(1.05);
+}
+.footer-links h4 {
+  margin-bottom: 15px;
+}
+.footer-links li:not(:first-child):has(+ li) {
+  margin-bottom: 10px;
+}
+.footer-links-img img {
+  max-width: 42px;
+}
+.footer-links-img {
+  display: flex;
+  gap: 20px;
+}
+.footer-links li a {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+.footer-links li a:hover {
+  transform: scale(1.04);
+}
+@media (max-width: 924px) {
+  .footer-container {
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    text-align: center;
+  }
+  .footer-intro {
+    grid-column: 1 / -1;
+    justify-items: center;
+    margin-bottom: 40px;
+  }
+  .footer-links-img {
+    justify-self: center;
+  }
+}
+@media (max-width: 543px) {
+  .footer-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .footer-links:nth-child(4) {
+    grid-column: 1 / -1;
+    margin-top: 35px;
+  }
+}
+@media (max-width: 343px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .footer-links:nth-child(4) {
+    margin-top: 0px;
   }
 }
