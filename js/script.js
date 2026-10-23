@@ -35,7 +35,7 @@ const products = [
   },
   {
     category: "headset",
-    h3: "Headseat",
+    h3: "Studio Headset",
     price: "$129",
     p: "Pro acoustics. Wireless design. Ultra-low latency.",
     image: "./img/acc03.webp",
@@ -64,7 +64,7 @@ const products = [
 ];
 
 const activeCategory = products.filter((item) => item.category === category);
-console.log(activeCategory);
+
 const categoryJs = document.querySelector(".category-js");
 const model = document.querySelector(".category-item");
 
@@ -79,4 +79,168 @@ if (category && categoryJs && model) {
     categoryJs.appendChild(newItem);
   });
   model.remove();
+}
+
+//Product
+//generate cards
+const productsCard = [
+  {
+    image: "./img/acc01.webp",
+    h3: "Iphone 15pro",
+    h4: "Smartphones",
+    price: "$699",
+    assessment: "(213)",
+    sku: "iphone-15-pro",
+  },
+  {
+    image: "./img/acc02.webp",
+    h3: "MacBook Air 13-inch",
+    h4: "Laptop",
+    price: "$1099",
+    assessment: "(77)",
+    sku: "macbook-air-13-inch",
+  },
+  {
+    image: "./img/acc03.webp",
+    h3: "Studio Headset",
+    h4: "Headset",
+    price: "$129",
+    assessment: "(91)",
+    sku: "studio-headset",
+  },
+  {
+    image: "./img/acc04.webp",
+    h3: "Apple Watch Series 12",
+    h4: "Applewatch",
+    price: "$399",
+    assessment: "(85)",
+    sku: "apple-watch-series-12",
+  },
+  {
+    image: "./img/acc05.webp",
+    h3: "Apple USB-C to Digital AV Multiport Adapter",
+    h4: "Accessory",
+    price: "$39",
+    assessment: "(14)",
+    sku: "apple-usb-c",
+  },
+];
+const productsContainer = document.querySelector(".products-js");
+const model02 = document.querySelector(".model02");
+
+if (productsContainer && model02) {
+  productsCard.forEach((item) => {
+    const newItem02 = model02.cloneNode(true);
+    newItem02.querySelector("img").src = item.image;
+    newItem02.querySelector("h3").textContent = item.h3;
+    newItem02.querySelector("h4").textContent = item.h4;
+    newItem02.querySelector(".productPrice").textContent = item.price;
+    newItem02.querySelector(".assement").textContent = item.assessment;
+    newItem02.dataset.sku = item.sku;
+    productsContainer.appendChild(newItem02);
+  });
+  model02.remove();
+}
+
+//Product random card
+let item02 = Array.from(document.querySelectorAll(".model02"));
+let itemRandom02 = item02.sort(() => Math.random() - 0.5);
+
+function random02() {
+  itemRandom02.forEach((item) => {
+    productsContainer.appendChild(item);
+  });
+}
+random02();
+
+//Product identify click
+const identifyItem = document.querySelectorAll(".model02");
+
+identifyItem.forEach((item) => {
+  item.addEventListener("click", function (event) {
+    event.preventDefault();
+    const skuItem = event.currentTarget.dataset.sku;
+    window.location.href = `./product.html?sku=${skuItem}`;
+  });
+});
+const paramsProduct = new URLSearchParams(window.location.search);
+const skuProduct = paramsProduct.get("sku");
+
+const productsCardPage = [
+  {
+    sku: "iphone-15-pro",
+    h1: "Iphone 15pro",
+    price: "$699",
+    p01: "Pro performance. Titanium design. Powerful camera.",
+    assessment: "1340 Reviews",
+    p02: "The iPhone 15 Pro features a lightweight titanium design, the powerful A17 Pro chip, a customizable Action Button, USB-C, and a pro 48 MP camera.",
+    image: "./img/acc01.webp",
+  },
+  {
+    sku: "studio-headset",
+    h1: "Studio Headset",
+    price: "$129",
+    p01: "Pro acoustics. Wireless design. Ultra-low latency.",
+    assessment: "1040 Reviews",
+    p02: "Studio headsets are professional headphones with a flat frequency response for accurate sound reproduction, available in open or closed-back designs.",
+    image: "./img/acc03.webp",
+  },
+  {
+    sku: "macbook-air-13-inch",
+    h1: "MacBook Air 13-inch",
+    price: "$1,099",
+    p01: "Extreme power. Aluminum design. All-day battery.",
+    assessment: "1531 Reviews",
+    p02: "The 13-inch MacBook Air features the M3 chip, an ultra-thin aluminum design, a brilliant Liquid Retina display, 18-hour battery life, and silent, fanless operation.",
+    image: "./img/acc02.webp",
+  },
+  {
+    sku: "apple-watch-series-12",
+    h1: "Apple Watch Series 12",
+    price: "$399",
+    p01: "health sensors like ECG, advanced tracking, and premium case materials.",
+    assessment: "1031 Reviews",
+    p02: "The Apple Watch Series 12 features an ultra-thin design, an advanced Health Sensing System for hyper-accurate heart rate tracking, Siri AI capabilities, a brilliant Always-On Retina display, and finishes in aluminum, titanium, or premium ceramic.",
+    image: "./img/acc04.webp",
+  },
+  {
+    sku: "apple-usb-c",
+    h1: "Apple USB-C to Digital AV Multiport Adapter",
+    price: "$39",
+    p01: "Instant snap. Magnetic alignment. Effortless wireless charging.",
+    assessment: "1016 Reviews",
+    p02: "The Apple USB-C to Digital AV Multiport Adapter lets you connect your Mac, iPad, or iPhone to an HDMI display, while also connecting a standard USB device and a charging cable.",
+    image: "./img/acc05.webp",
+  },
+];
+
+const model03 = document.querySelector(".product-container");
+const pContainer = document.querySelector(".product-bg");
+
+if (model03 && skuProduct) {
+  const foundProduct = productsCardPage.find((item) => item.sku === skuProduct);
+
+  if (foundProduct) {
+    const newItem03 = model03.cloneNode(true);
+
+    // Seleciona as 4 tags de imagem do modelo
+    const imgElements = newItem03.querySelectorAll(".product-img");
+
+    // Coloca a mesma imagem em todas elas
+    imgElements.forEach((imgTag) => {
+      imgTag.src = foundProduct.image;
+    });
+
+    newItem03.querySelector("h1").textContent = foundProduct.h1;
+    newItem03.querySelector(".product-mini-p").textContent = foundProduct.p01;
+    newItem03.querySelector(".product-info-assessment").textContent =
+      foundProduct.assessment;
+    newItem03.querySelector(".product-info-price").textContent =
+      foundProduct.price;
+    newItem03.querySelector(".product-about-p").textContent = foundProduct.p02;
+    newItem03.dataset.sku = foundProduct.sku;
+
+    pContainer.appendChild(newItem03);
+    model03.remove();
+  }
 }
