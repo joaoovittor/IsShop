@@ -244,3 +244,63 @@ if (model03 && skuProduct) {
     model03.remove();
   }
 }
+
+// Review generate cards
+const reviewCard = [
+  {
+    h4: "Ethan Carter",
+    subtitle: "Loyal Customer",
+    p: "Everything arrived perfectly packaged and the quality was even better than I expected. The whole experience was smooth from start to finish",
+    imageItem: "./img/acc06.webp",
+    itemName: "Iphone 15pro",
+  },
+  {
+    h4: "Olivia Bennett",
+    subtitle: "Loyal Customer",
+    p: "I’m really happy with my purchase. The product feels well-made and the attention to detail is incredible.",
+    imageItem: "./img/acc03.webp",
+    itemName: "Studio Headset",
+  },
+  {
+    h4: "Lucas Anderson",
+    subtitle: "Loyal Customer",
+    p: "Definitely worth it. I’m very satisfied with my purchase and would recommend this store to anyone looking for quality tech products.",
+    imageItem: "./img/acc02.webp",
+    itemName: "MacBook Air 13inch",
+  },
+];
+const rContainer = document.querySelector(".reviews-container");
+const reviewModel = document.querySelector(".reviews-items");
+
+if (rContainer && reviewModel) {
+  reviewCard.forEach((item) => {
+    const newItem04 = reviewModel.cloneNode(true);
+
+    newItem04.classList.add("reviewModel");
+
+    newItem04.querySelector(".reviewName").textContent = item.h4;
+    newItem04.querySelector(".reviewSubtitle").textContent = item.subtitle;
+    newItem04.querySelector("p").textContent = item.p;
+    newItem04.querySelector(".reviewImage").src = item.imageItem;
+    newItem04.querySelector(".reviews-itemName").textContent = item.itemName;
+    rContainer.appendChild(newItem04);
+  });
+
+  reviewModel.remove();
+
+  Reviewrandom();
+}
+
+// Review random card
+function Reviewrandom() {
+  let item04 = Array.from(rContainer.querySelectorAll(".reviewModel"));
+
+  for (let i = item04.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [item04[i], item04[j]] = [item04[j], item04[i]];
+  }
+
+  item04.forEach((item) => {
+    rContainer.appendChild(item);
+  });
+}
