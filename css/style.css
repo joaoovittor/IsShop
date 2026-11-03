@@ -258,10 +258,28 @@ button {
 }
 .header-container-card img {
   display: block;
+}
+.header-container-card {
+  position: relative;
   transition: 0.3s ease-in-out;
 }
-.header-container-card img:hover {
+.header-container-card:hover {
   transform: scale(1.05);
+}
+
+.cart-count {
+  display: none;
+  position: absolute;
+  font-size: 0.75rem;
+  background-color: #e86616;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 100%;
+  right: 20px;
+  top: -10px;
+}
+.cart-count.active {
+  display: block;
 }
 /* responsive */
 @media (max-width: 800px) {

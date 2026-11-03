@@ -304,3 +304,142 @@ function Reviewrandom() {
     rContainer.appendChild(item);
   });
 }
+
+//Cart category and product identify item
+const categoryButton = document.querySelector(".category-btn");
+const cartitem = JSON.parse(localStorage.getItem("cart")) || [];
+if (categoryButton) {
+  categoryButton.addEventListener("click", function (event) {
+    event.preventDefault();
+    const params = new URLSearchParams(window.location.search);
+    const category = params.get("category");
+    const selectedProduct = products.find((item) => {
+      return item.category === category;
+    });
+    if (!selectedProduct) return;
+    const newCartItem = {
+      nameItem: selectedProduct.h3,
+      priceItem: selectedProduct.price,
+      imageItem: selectedProduct.image,
+    };
+    cartitem.push(newCartItem);
+    localStorage.setItem("cart", JSON.stringify(cartitem));
+    window.location.href = "./cart.html";
+  });
+}
+
+const productButton = document.querySelector(".productsBtn-js");
+if (productButton) {
+  productButton.addEventListener("click", function (event) {
+    event.preventDefault();
+    const params = new URLSearchParams(window.location.search);
+    const productSku = params.get("sku");
+    const selectedProduct = productsCardPage.find((item) => {
+      return item.sku === productSku;
+    });
+    if (!selectedProduct) return;
+    const newCartItem = {
+      nameItem: selectedProduct.h1,
+      priceItem: selectedProduct.price,
+      imageItem: selectedProduct.image,
+    };
+    cartitem.push(newCartItem);
+    localStorage.setItem("cart", JSON.stringify(cartitem));
+    window.location.href = "./cart.html";
+  });
+}
+
+// Cart render products
+const cartList = document.querySelector(".cart-item");
+const cartTemplate = document.querySelector(".cartItemJs");
+
+if (cartList && cartTemplate) {
+  const cartProducts = JSON.parse(localStorage.getItem("cart")) || [];
+
+  // Render products
+  cartProducts.forEach((item, index) => {
+    const cartClone = cartTemplate.cloneNode(true);
+
+    cartClone.dataset.cartIndex = index;
+
+    cartClone.querySelector("img").src = item.imageItem;
+    cartClone.querySelector("img").alt = item.nameItem;
+    cartClone.querySelector("h3").textContent = item.nameItem;
+    cartClone.querySelector(".cart-item-price").textContent = item.priceItem;
+
+    // Quantity
+    cartClone.querySelector(".cart-item-quantity").textContent = "1";
+
+    // Subtotal
+    cartClone.querySelector(".cart-item-subtotal").textContent = item.priceItem;
+
+    cartList.appendChild(cartClone);
+  });
+
+  // Remove original model
+  cartTemplate.remove();
+
+  // Remove products
+  cartList.addEventListener("click", (event) => {
+    const button = event.target.closest(".cart-item-remove");
+
+    if (!button) return;
+
+    const currentItem = button.closest(".cartItemJs");
+    if (!currentItem) return;
+    const index = Number(currentItem.dataset.cartIndex);
+
+    cartProducts.splice(index, 1);
+    localStorage.setItem("cart", JSON.stringify(cartProducts));
+
+    currentItem.remove();
+
+    // Update indexes
+    cartList.querySelectorAll(".cartItemJs").forEach((item, index) => {
+      item.dataset.cartIndex = index;
+    });
+
+    totalPrice();
+  });
+
+  totalPrice();
+}
+
+//total
+function totalPrice() {
+  const itemPrice = document.querySelectorAll(".cart-item-subtotal");
+
+  const itemPriceNumber = Array.from(itemPrice).map((item) => {
+    return Number(item.textContent.replace("$", "").replaceAll(",", ""));
+  });
+
+  const total = itemPriceNumber.reduce((accumulator, price) => {
+    return accumulator + price;
+  }, 0);
+
+  const totalFormatted = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+  }).format(total);
+
+  const subtotalShow = document.querySelector(
+    ".cart-info-detail-subtotal-price",
+  );
+
+  const totalShow = document.querySelector(".cart-info-detail-03-total-price");
+
+  if (subtotalShow) subtotalShow.textContent = totalFormatted;
+  if (totalShow) totalShow.textContent = totalFormatted;
+}
+
+// Cart Count
+const count = document.querySelector(".cart-count");
+
+if (count) {
+  const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+  const cartQuantity = cartItems.length;
+  count.textContent = cartQuantity;
+  if (cartQuantity > 0) {
+    count.classList.add("active");
+  }
+}
