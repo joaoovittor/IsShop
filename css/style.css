@@ -1574,3 +1574,14 @@ main > .category-container > .category-item p {
     padding: 13px 12px;
   }
 }
+
+/**/
+.scrolljs {
+  opacity: 0;
+  transform: translateX(-60px);
+  transition: 0.4s ease-in;
+}
+.scrolljs.active {
+  opacity: 1;
+  transform: translateX(0);
+}

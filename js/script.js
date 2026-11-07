@@ -507,3 +507,21 @@ if (links) {
     });
   });
 }
+
+//Scroll animation
+if (window.location.pathname === "/index.html") {
+  const section = document.querySelectorAll(".scrolljs");
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("active");
+        }
+      });
+    },
+    { threshold: window.innerWidth < 924 ? 0 : 0.5 },
+  );
+  section.forEach((item) => {
+    observer.observe(item);
+  });
+}
