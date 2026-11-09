@@ -5,7 +5,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>IsShop</title>
-  <link rel="stylesheet" href="./css/style.css">
+  <link rel="preload" href="./css/style.min.css" as="style">
+  <link rel="stylesheet" href="./css/style.min.css">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -30,7 +32,7 @@
         </ul>
       </nav>
 
-      <a class="header-container-card" href="./cart.html"><img class="cart" src="./img/icon/icon01.webp" alt="">
+      <a class="header-container-card" href="./cart.html" aria-label="Shopping cart"><img class="cart" src="./img/icon/icon01.webp" alt="">
         <span class="cart-count"></span></a>
     </div>
   </header>
@@ -123,7 +125,7 @@
             <div class="reviews-item-intro">
               <img src="./img/person.webp" alt="">
               <div>
-                <h4 class="font-12 reviewName"></h4>
+                <h3 class="font-12 reviewName"></h3>
                 <span class="font-13 reviewSubtitle"></span>
               </div>
             </div>
@@ -156,28 +158,28 @@
     <section class="contact-container scrolljs" id="contact">
       <div class="contact-intro">
         <span class="font-18">Get in Touch</span>
-        <h3 class="font-6">Find your favorite</h3>
+        <h2 class="font-6">Find your favorite</h2>
         <p class="font-19">Have a question or need help with your order? Our team is here to help. Get in touch with us and we’ll be happy to assist you.</p>
         <a class="font-20" href="#contact">Contact Us</a>
       </div>
       <div class="contact-content">
         <img src="./img/icon/tel.png" alt="phone icon">
         <div>
-          <h4 class="font-21">Phone</h4>
+          <h3 class="font-21">Phone</h3>
           <a class="font-14" href="./" type="tel:+14155550198">+1 (415) 555-0198</a>
         </div>
       </div>
       <div class="contact-content">
         <img src="./img/icon/email.png" alt="email icon">
         <div>
-          <h4 class="font-21">Email</h4>
+          <h3 class="font-21">Email</h3>
           <a class="font-14" href="./" type="mailto:hello@isshop.com">hello@isshop.com</a>
         </div>
       </div>
       <div class="contact-content">
         <img src="./img/icon/location.webp" alt="location icon">
         <div>
-          <h4 class="font-21">Location</h4>
+          <h3 class="font-21">Location</h3>
           <p class="font-14" href="./">1578 Paulista Avenue, Bela Vista,<br>
             São Paulo, Brazil</p>
         </div>
@@ -188,19 +190,19 @@
   <footer class="footer-bg">
     <div class="footer-container scrolljs">
       <div class="footer-intro">
-        <h3 class="font-22">Is<span>Shop</span></h3>
+        <p class="font-22 ftitle">Is<span>Shop</span></p>
         <p class="font-23">Discover the latest in technology with quality products designed for your everyday life. Innovation and performance, all in one place.
         </p>
         <ul class="footer-intro-links">
-          <li><a href="./"><img src="./img/icon/instagram.webp" alt="instagram icon"></a></li>
-          <li><a href="./"><img src="./img/icon/facebook.webp" alt="facebook icon"></a></li>
-          <li><a href="./"><img src="./img/icon/twitter.webp" alt="twitter icon"></a></li>
-          <li><a href="./"><img src="./img/icon/youtube.webp" alt="youtube icon"></a></li>
+          <li><a href="./" aria-label="instagram"><img src="./img/icon/instagram.webp" alt=""></a></li>
+          <li><a href="./" aria-label="facebook"><img src="./img/icon/facebook.webp" alt="facebook icon"></a></li>
+          <li><a href="./" aria-label="twitter"><img src="./img/icon/twitter.webp" alt="twitter icon"></a></li>
+          <li><a href="./" aria-label="youtube"><img src="./img/icon/youtube.webp" alt="youtube icon"></a></li>
         </ul>
       </div>
       <ul class="footer-links">
         <li>
-          <h4>Explore</h4>
+          <h3>Explore</h3>
         </li>
         <li><a href="#hero">Home</a></li>
         <li><a href="#category">Categories</a></li>
@@ -209,7 +211,7 @@
       </ul>
       <ul class="footer-links">
         <li>
-          <h4>Help & Support</h4>
+          <h3>Help & Support</h3>
         </li>
         <li><a href="#">FAQs</a></li>
         <li><a href="#">Shipping & Delivery</a></li>
@@ -218,7 +220,7 @@
       </ul>
       <ul class="footer-links">
         <li>
-          <h4>Payment</h4>
+          <h3>Payment</h3>
         </li>
         <li class="footer-links-img">
           <a href=""><img src="./img/icon/icon05.webp" alt="PayPal logo"></a>

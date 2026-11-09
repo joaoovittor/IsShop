@@ -73,7 +73,7 @@ if (category && categoryJs && model) {
     const newItem = model.cloneNode(true);
     newItem.querySelector("img").src = item.image;
     newItem.querySelector("img").alt = item.h3;
-    newItem.querySelector("h3").textContent = item.h3;
+    newItem.querySelector("h2").textContent = item.h3;
     newItem.querySelector(".category-item-price").textContent = item.price;
     newItem.querySelector("p").textContent = item.p;
     categoryJs.appendChild(newItem);
@@ -364,7 +364,7 @@ if (cartList && cartTemplate) {
 
     cartClone.querySelector("img").src = item.imageItem;
     cartClone.querySelector("img").alt = item.nameItem;
-    cartClone.querySelector("h3").textContent = item.nameItem;
+    cartClone.querySelector("h2").textContent = item.nameItem;
     cartClone.querySelector(".cart-item-price").textContent = item.priceItem;
 
     // Quantity
