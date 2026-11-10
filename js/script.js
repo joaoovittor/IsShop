@@ -489,7 +489,7 @@ if (headerNavigation && headerMenuButton && headerNavigationList) {
 
 const links = document.querySelectorAll(".header-link a");
 
-if (links) {
+if (links.length > 0) {
   links.forEach((item) => {
     item.addEventListener("click", (event) => {
       const href = item.getAttribute("href");
@@ -509,7 +509,7 @@ if (links) {
 }
 
 //Scroll animation
-if (window.location.pathname === "/index.html") {
+if (document.querySelector(".scrolljs")) {
   const section = document.querySelectorAll(".scrolljs");
   const observer = new IntersectionObserver(
     (entries) => {
